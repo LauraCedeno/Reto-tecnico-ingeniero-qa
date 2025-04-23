@@ -58,8 +58,10 @@ public class PIMPage {
         WebElement infoContact = wait.until(ExpectedConditions.elementToBeClickable(menuContact));
         infoContact.click();
 
-        WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(workEmail));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", emailInput);
+        // Hacer scroll 300 píxeles hacia abajo
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300)");
+
+        WebElement emailInput = wait.until(ExpectedConditions.elementToBeClickable(workEmail));
         emailInput.sendKeys(email);
     
         driver.findElement(saveBtn).click();
@@ -79,9 +81,18 @@ public class PIMPage {
     public void buscarEmpleado(String nombre) {
         WebElement search = wait.until(ExpectedConditions.elementToBeClickable(searchName));
         search.sendKeys(nombre);
+        try {
+            Thread.sleep(1000); // Espera de 1 segundos después de buscar
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
         btn.click();
-
+        try {
+            Thread.sleep(1000); // Espera de 1 segundos después de buscar
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         // Hacer scroll 300 píxeles hacia abajo
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300)");
 
@@ -155,13 +166,22 @@ public class PIMPage {
     
     public void eliminarEmpleado(String nombreCompleto) {
         // Encuentra el botón de eliminar al lado del empleado
-        By botonEliminar = By.xpath("//div[@role='rowgroup']//div[contains(text(),'" + nombreCompleto + "')]/ancestor::div[@role='row']//i[@class='oxd-icon bi-trash']");
+        By botonEliminar = By.xpath("//div[@role='table']//div[1]//div[1]//div[9]//div[1]//button[2]//i[1]");
         WebElement eliminar = wait.until(ExpectedConditions.elementToBeClickable(botonEliminar));
         eliminar.click();
-    
+        try {
+            Thread.sleep(3000); // Espera de 2 segundos después de buscar
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         // Confirmar eliminación
         By confirmarBtn = By.xpath("//button[normalize-space()='Yes, Delete']");
         WebElement btnConfirmar = wait.until(ExpectedConditions.elementToBeClickable(confirmarBtn));
+        try {
+            Thread.sleep(3000); // Espera de 2 segundos después de buscar
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         btnConfirmar.click();
     
         // Espera a que se borre y la lista se actualice
