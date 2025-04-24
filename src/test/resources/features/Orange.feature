@@ -3,7 +3,7 @@ Feature: Agregar nuevo empleado
   Scenario: Crear nuevo empleado exitosamente
     Given el usuario accede al login de OrangeHRM
     When ingresa credenciales válidas con usuario "Admin" y contraseña "admin123"
-    When navega a la sección PIM y agrega un nuevo empleado con nombre "Laura", apellido "Andrade", email "pablo.doe@example.com"
+    When navega a la sección PIM y agrega un nuevo empleado con nombre "Laura", apellido "Andrade", email "andrade.laura@gmail.com"
 
   Scenario: Buscar un empleado por nombre
     When busca al empleado por nombre "Laura Andrade"
@@ -16,6 +16,11 @@ Feature: Agregar nuevo empleado
 
   Scenario: Eliminar un empleado y validar que ya no aparece en la lista
     When elimina al empleado con nombre "Laura Castro"
+
+  Scenario: Subir un archivo en Contact Details
+    Given el usuario sube un archivo "CV.pdf"
+
+
 
 
  

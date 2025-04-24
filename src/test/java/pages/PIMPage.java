@@ -78,11 +78,13 @@ public class PIMPage {
 
     }
 
+
+
     public void buscarEmpleado(String nombre) {
         WebElement search = wait.until(ExpectedConditions.elementToBeClickable(searchName));
         search.sendKeys(nombre);
         try {
-            Thread.sleep(1000); // Espera de 1 segundos después de buscar
+            Thread.sleep(1000); 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -97,7 +99,7 @@ public class PIMPage {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300)");
 
         try {
-            Thread.sleep(1000); // Espera de 1 segundos después de buscar
+            Thread.sleep(1000); 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -129,7 +131,7 @@ public class PIMPage {
         WebElement editar = wait.until(ExpectedConditions.elementToBeClickable(botonEditar));
         editar.click();
         try {
-            Thread.sleep(3000); // Espera de 2 segundos después de buscar
+            Thread.sleep(3000); 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -142,7 +144,7 @@ public class PIMPage {
         campoApellido.sendKeys(nuevoApellido);
 
         try {
-            Thread.sleep(4000); // Espera de 2 segundos después de buscar
+            Thread.sleep(3000); 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -151,7 +153,7 @@ public class PIMPage {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300)");
 
         try {
-            Thread.sleep(3000); // Espera de 2 segundos después de buscar
+            Thread.sleep(2000); 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -170,7 +172,7 @@ public class PIMPage {
         WebElement eliminar = wait.until(ExpectedConditions.elementToBeClickable(botonEliminar));
         eliminar.click();
         try {
-            Thread.sleep(3000); // Espera de 2 segundos después de buscar
+            Thread.sleep(2000); // 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -178,7 +180,7 @@ public class PIMPage {
         By confirmarBtn = By.xpath("//button[normalize-space()='Yes, Delete']");
         WebElement btnConfirmar = wait.until(ExpectedConditions.elementToBeClickable(confirmarBtn));
         try {
-            Thread.sleep(3000); // Espera de 2 segundos después de buscar
+            Thread.sleep(1000); // 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
